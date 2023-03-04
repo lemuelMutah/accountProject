@@ -1,9 +1,9 @@
-group.o = checkingsAccount.o account.o savingsAccount.o assign6.o
+group.o = checkingsAccount.o account.o savingsAccount.o main.o
 
-assign6: $(group.o)
-	c++ $(group.o) -o assign6
+app: $(group.o)
+	c++ $(group.o) -o app
 
-assign6.o: assign6.cpp checkingsAccount.h savingsAccount.h account.h
+main.o: main.cpp checkingsAccount.h savingsAccount.h account.h
 	c++ -c assign6.cpp
 
 checkingsAccount.o: checkingsAccount.h checkingsAccount.cpp account.h
@@ -14,3 +14,6 @@ savingsAccount.o: savingsAccount.h savingsAccount.cpp account.h
 
 account.o: account.h account.cpp
 	c++ -c account.cpp
+	
+clean:
+	rm *.o
